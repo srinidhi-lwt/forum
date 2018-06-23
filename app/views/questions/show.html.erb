@@ -21,4 +21,7 @@
       <h4> <%= @question.created_at %> </h4>
     </div>
   </div>
+
+  <%= render 'answers/new', question: @question %>
+  <%= render 'answers/index', question: @question %>
 </div>

@@ -16,7 +16,10 @@ class UsersController < ApplicationController
   end
 
   def show
-  	@user = User.find(params[:id])
+    @user = User.find(params[:id])
+    if params[:category].blank?
+      @questions = @user.questions
+    end
   end
 
   private

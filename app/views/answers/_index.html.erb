@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-md-8">
+    <h4> Answers (<%= question.answers.count %>) </h4>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <h4> Description </h4>
+  </div>
+  <div class="col-md-3">
+      <h4> Answered By </h4>
+  </div>
+  <div class="col-md-3">
+      <h4> Created At </h4>
+  </div>
+  </div>
+<% question.answers.each do |x| %>
+  <div class="row well">
+    <div class="col-md-6">
+      <h4><%= x.description %></h4>
+    </div>
+    <div class="col-md-3">
+      <h4><%= x.user.email %></h4>
+    </div>
+    <div class="col-md-3">
+      <h4><%= x.created_at %></h4>
+    </div>
+  </div>
+<% end %>

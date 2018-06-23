@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-md-4">
+    <%= simple_form_for @answer do |f| %>
+      <% if question.errors.any? %>
+        <div id="error_explanation">
+          <h2>
+            <%= pluralize(question.errors.count, "error") %>
+          </h2>
+          <ul>
+            <% question.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <%= f.input :description, class: 'form-control', placeholder: 'Your Answer here', required: true %>
+      <%= f.input :user_id, as: :hidden, input_html: { value: params[:user_id] } %>
+      <%= f.input :question_id, as: :hidden, input_html: { value: params[:id] } %>
+      <%= f.submit 'Submit Answer', class: 'btn btn-default' %>
+    <% end %>
+  </div>
+</div>
