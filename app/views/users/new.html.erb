@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <%= simple_form_for @user do |f| %>
+        <% if @user.errors.any? %>
+          <div id="error_explanation">
+            <h2>
+              <%= pluralize(@user.errors.count, "error") %>
+            </h2>
+            <ul>
+              <% @user.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <%= f.input :email, class: 'form-control', placeholder: 'Enter email here', required: true %>
+        <%= f.input :first_name, class: 'form-control', placeholder: 'Enter email here', required: true %>
+        <%= f.input :last_name, class: 'form-control', placeholder: 'Enter email here', required: true %>
+        <%= f.submit 'Create User', class: 'btn btn-default' %>
+      <% end %>
+  </div>
+</div>
