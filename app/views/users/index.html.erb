@@ -6,7 +6,7 @@
      <div class="col-md-3">
       <h4>First name</h4>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-2">
       <h4>Last name</h4>
     </div>
   </div>
@@ -18,11 +18,16 @@
       <div class="col-md-3">
         <h4> <%= user.first_name %> </h4>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-2">
         <h4> <%= user.last_name %> </h4>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-1">
         <h4> <%= link_to 'View Questions', user_path(user), class: 'btn btn-primary' %> </h4>
+      </div>
+      <div class="col-md-1">
+      </div>
+       <div class="col-md-1">
+        <h4> <%= link_to 'Add Interest', '', class: 'btn btn-primary' %> </h4>
       </div>
     </div>
   <% end %>
