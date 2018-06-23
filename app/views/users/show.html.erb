@@ -21,7 +21,9 @@
       <h4> <%= @user.last_name %></h4>
     </div>
     <div class="col-md-3">
-      <h4> <%= link_to 'Add Question', '#', class: 'btn btn-primary' %></h4>
+      <h4> <%= link_to 'Add Question', new_question_path(user_id: @user.id), class: 'btn btn-primary' %></h4>
     </div>
   </div>
+
+  <%= render 'questions/user_questions', user: @user %>
 </div>
