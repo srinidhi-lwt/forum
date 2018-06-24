@@ -22,6 +22,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def interests
+    @user = User.find(params[:id])
+    @category = Category.new
+  end
+
   private
 
   def user_params
