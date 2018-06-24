@@ -1,6 +1,7 @@
 class QuestionsController < ApplicationController
 
   def index
+    @questions = Question.all
   end
 
   def new
@@ -12,6 +13,9 @@ class QuestionsController < ApplicationController
     @user = User.find(params[:question][:user_id])
     @question = Question.new(question_params)
     if @question.save
+      redirect_to user_path(@user)
+    else
+      flash[:error] = 'Cannot Add your question'
       redirect_to user_path(@user)
     end
   end

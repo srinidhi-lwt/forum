@@ -15,11 +15,16 @@
 	        <a class="navbar-brand" href=<%= root_path %>>Forum</a>
 	      </div>
 	      <ul class="nav navbar-nav navbar-right">
-	        <li><a href=<%=  %>><span class="glyphicon glyphicon-log-in"></span> All Questions</a></li>
+	        <li><a href=<%= questions_path %>><span class="glyphicon glyphicon-log-in"></span> All Questions</a></li>
 	        <li><a href=<%= new_user_path %>><span class="glyphicon glyphicon-log-in"></span> Sign In</a></li>
 	      </ul>
 	    </div>
 	  </nav>
+	  <% flash.each do |key, value| %>
+	    <div class="red-color text-center <%= flash_class(key) %>">
+	      <h4> <%= value %> </h4>
+	    </div>
+	  <% end %>
   <%= yield %>
   </body>
 </html>

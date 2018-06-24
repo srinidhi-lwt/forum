@@ -4,4 +4,6 @@ class User < ApplicationRecord
   has_many :user_categories, dependent: :destroy
   has_many :categories, through: :user_categories
   has_many :votes, through: :answers
+
+  validates :email, :first_name, :last_name, presence: true
 end
