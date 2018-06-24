@@ -1,0 +1,15 @@
+<div class="row">
+  <% ['up', 'down'].each do |type| %>
+	  <div class="col-md-3">
+			<h4>
+			  <%= form_tag @vote do %>
+			    <%= hidden_field_tag 'user_id', user.id %>
+			    <%= hidden_field_tag 'answer_id', answer.id %>
+			    <%= hidden_field_tag 'question_id', question.id %>
+			    <%= hidden_field_tag 'vote_type', type %>
+			    <%= submit_tag "#{type.capitalize}vote (#{votes_count(answer, type)})", class: 'btn btn-default' %>
+			  <% end %>
+			</h4>
+		</div>
+	<% end %>
+</div>

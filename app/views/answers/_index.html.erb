@@ -14,17 +14,17 @@
       <h4> Created At </h4>
   </div>
   </div>
-<% question.answers.each do |x| %>
+<% question.answers.each do |answer| %>
   <div class="row well">
     <div class="col-md-6">
-      <h3><%= x.description %></h3>
-      <h5><%= link_to 'Upvote', '#' %></h5>
+      <h3><%= answer.description %></h3>
+      <%= render 'votes/index', user: user, question: question, answer: answer %>
     </div>
     <div class="col-md-3">
-      <h4><%= x.user.email %></h4>
+      <h4><%= answer.user.email %></h4>
     </div>
     <div class="col-md-3">
-      <h4><%= x.created_at %></h4>
+      <h4><%= answer.created_at %></h4>
     </div>
   </div>
 <% end %>
