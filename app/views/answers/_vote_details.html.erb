@@ -1,0 +1,13 @@
+<div class="row">
+  <% ['up', 'down'].each do |type| %>
+    <% votes = answer_votes(answer, type) %>
+    <div class="col-md-3">
+      <ul class="list-group">
+        <h4><%= "#{type.capitalize}vote (#{votes.count})" %></h4>
+        <% votes.each do |vote| %>
+          <li class="list-group-item"><%= vote.user.email %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+</div>

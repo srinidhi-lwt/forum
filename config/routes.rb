@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   	get 'interests', on: :member
   end
   resources :questions
-  resources :answers, only: [:create]
-  resources :categories
-  resources :votes
+  resources :answers, only: [:create, :show]
+  resources :categories, only: [:create, :destroy]
+  resources :votes, only: [:create]
 end

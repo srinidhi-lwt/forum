@@ -7,7 +7,7 @@ module ApplicationHelper
     user.categories.map(&:id)
   end
 
-  def votes_count(answer, type)
-    answer.votes.where(vote_type: type).count
+  def answer_votes(answer, type)
+    answer.votes.where(vote_type: type)
   end
 end

@@ -7,7 +7,7 @@
 			    <%= hidden_field_tag 'answer_id', answer.id %>
 			    <%= hidden_field_tag 'question_id', question.id %>
 			    <%= hidden_field_tag 'vote_type', type %>
-			    <%= submit_tag "#{type.capitalize}vote (#{votes_count(answer, type)})", class: 'btn btn-default' %>
+			    <%= submit_tag "#{type.capitalize}vote (#{answer_votes(answer, type).count})", class: 'btn btn-default' %>
 			  <% end %>
 			</h4>
 		</div>
