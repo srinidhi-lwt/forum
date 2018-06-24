@@ -5,6 +5,7 @@ class QuestionsController < ApplicationController
 
   def new
     @question = Question.new
+    @user = User.find(params[:user_id])
   end
 
   def create
@@ -23,6 +24,6 @@ class QuestionsController < ApplicationController
   private
 
   def question_params
-    params.require(:question).permit(:title, :user_id)
+    params.require(:question).permit(:title, :user_id, :category_id)
   end
 end

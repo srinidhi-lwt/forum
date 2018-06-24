@@ -15,6 +15,7 @@
           </div>
         <% end %>
         <%= f.input :title, class: 'form-control', placeholder: 'Your Question here', required: true %>
+        <%= f.input :category_id, as: :select, collection: @user.categories, prompt: 'Select a category' %>
         <%= f.input :user_id, as: :hidden, input_html: { value: params[:user_id] }%>
         <%= f.submit 'Create Question', class: 'btn btn-default' %>
       <% end %>
