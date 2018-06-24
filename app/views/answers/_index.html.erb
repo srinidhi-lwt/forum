@@ -17,7 +17,8 @@
 <% question.answers.each do |x| %>
   <div class="row well">
     <div class="col-md-6">
-      <h4><%= x.description %></h4>
+      <h3><%= x.description %></h3>
+      <h5><%= link_to 'Upvote', '#' %></h5>
     </div>
     <div class="col-md-3">
       <h4><%= x.user.email %></h4>

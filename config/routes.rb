@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :questions
   resources :answers, only: [:create]
   resources :categories
+  resources :votes
 end

@@ -10,6 +10,7 @@ class CategoriesController < ApplicationController
     user = User.find(params[:id])
     user_category = user.user_categories.where(category_id: params[:category_id]).first
     user_category.destroy
+    user.questions.where(category_id: params[:category_id]).delete_all
     redirect_to interests_user_path(params[:id])
   end
 
