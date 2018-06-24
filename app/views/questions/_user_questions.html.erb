@@ -1,11 +1,31 @@
 <div class="row">
   <div class="col-md-3">
+    <ul class="list-group">
+      <%= link_to user_path(user) do %>
+        <li class="list-group-item">Asked By Me</li>
+      <% end %>
+    </ul>
+    <ul class="list-group">
+      <h4> Your Interests </h4>
+	    <% user.categories.each do |category| %>
+	      <%= link_to user_path(user, category_id: category.id) do %>
+	        <li class="list-group-item"><%= category.name %> </li>
+	      <% end %>
+	    <% end %>
+	  </ul>
   </div>
   <div class="col-md-9">
+    <% if params[:category_id].blank? %>
+      <h4 class="text-center"> Questions Asked by You</h4>
+    <% else %>
+      <h4 class="text-center"> Questions on <%= @category.name %></h4>
+    <% end %>
 		<% questions.each do |question| %>
 		  <div class="row well">
 		    <div class="col-md-8">
-		      <h4> <%= question.title %> </h4>
+		      <h3> <%= question.title %> </h3>
+		      <h5> Category: <span class="badge"> <%= question.category.name %> </span></h5>
+		      <h5> Asked By: <span class="label label-primary"> <%= question.user.email %> </span></h5>
 		    </div>
 		    <div class="col-md-4">
 		      <h4> <%= link_to 'Answer Question', question_path(question, user_id: params[:id]), class: 'btn btn-primary' %> </h4>
